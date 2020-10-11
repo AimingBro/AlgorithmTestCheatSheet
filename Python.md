@@ -943,3 +943,49 @@ print(string.find("Jason"))
   ```
 
   - 그냥 reversed(string)을 출력하게되면, 메모리값이 나오게됨
+
+## 32. 우선순위 큐
+
+힙큐를 사용해도되고, 우선순위큐를 사용해도 된다.
+
+```python
+from queue import PriorityQueue
+
+pq = PriorityQueue()
+#참고, 우선순위 큐의 디폴트 사이즈는 무한대
+#만약 특정 최대 크기를 가진 우선순위 큐가 필요하다면 maxsize를 설정
+#pq = PriorityQueue(maxsize=8)
+
+#추가 .put()
+que.put(4)
+que.put(1)
+que.put(7)
+que.put(3)
+
+#삭제 .get() 값을 리턴하면서 동시에 삭제함
+print(que.get())  # 1
+print(que.get())  # 3
+print(que.get())  # 4
+print(que.get())  # 7
+
+#정렬 기준 변경
+#단순 오름차순이 아닌 다른 기준으로 원소가 정렬되기를 원한다면, 
+#(우선순위, 값)의 튜플의 형태로 데이터를 추가
+que.put((3, 'Apple'))
+que.put((1, 'Banana'))
+que.put((2, 'Cherry'))
+
+print(que.get()[1])  # Banana
+print(que.get()[1])  # Cherry
+print(que.get()[1])  # Apple
+```
+
+```python
+#그외 함수들
+que.qsize()
+
+que.empty()
+
+que.full()
+```
+
